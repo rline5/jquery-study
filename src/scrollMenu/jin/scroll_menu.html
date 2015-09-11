@@ -28,17 +28,14 @@
 	<body>
 		<div class="wrap">
 			<div id="top_menu">
-					
 				<div id="logo">
 					<a href="#home"><img src="img/logoPaper.png" alt="Paper" /></a>
 				</div>
-				<div style="background-color: yellow; width: 100px; height: 200px;" ondrop="dropEvent(event)" ondragover="allowDrop(event)"></div>
-				<ul ondrop="dropEvent(event)" ondragover="allowDrop(event)">
-					<li class="on"><a href="#works" draggable="true" ondragstart="drag(event)">paper</a></li>
-					<li><a href="#company" draggable="true" ondragstart="drag(event)">works</a></li>
-					<li><a href="#email" draggable="true" ondragstart="drag(event)">email</a></li>
+				<ul ondrop="drop(event)" ondragover="allowDrop(event)">
+					<li class="on"><a href="#paper" draggable="true" ondragstart="drag(event)" data-index="1" id="test1">paper</a></li>
+					<li><a href="#works" draggable="true" ondragstart="drag(event)" data-index="2" id="test2">works</a></li>
+					<li><a href="#email" draggable="true" ondragstart="drag(event)" data-index="3" id="test3">email</a></li>
 				</ul>
-					
 			</div>
 			<div id="contents">
 				<div id="paper"><img src="img/paper.jpg" alt="paper" /></div>
