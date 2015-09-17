@@ -1,5 +1,5 @@
 $(function(){
-	var section = $('#contents > .parallax > div');	// mSection01, mSection02, mSection03
+	var section = $('#contents > .parallax > div');
 	var sectionInfo = [];
 	var objectInfo = [];
 	var totalSize = section.size();
@@ -10,7 +10,6 @@ $(function(){
 		
 		objectInfo.push([]);
 		
-		// 각 화면의 구성을 이루는 객체의 top 크기를 구한다.
 		var child = tg.children();
 		child.each(function(j){
 			var t = $(this);
@@ -39,19 +38,17 @@ $(function(){
 		.stop()
 		.animate({scrollTop:tt}, {duration:600, ease:'easeOutCubic'});
 	}
-
-	// 각 화면에 position을 fixed 처리한다.
+	
 	section.css('position', 'fixed');
-
-	// 화면이 스크롤 될 때 이벤트를 바인드한다.
+	
 	$(window).scroll(function(){
-		var sct = $(window).scrollTop();	// 스크롤의 위치
+		var sct = $(window).scrollTop();
 		
 		section.each(function(i){
 			var tg = $(this);
-			var tt = -1 * sct + sectionInfo[i];	// (스크롤의 위치 * -1) + 각 화면의 top
+			var tt = -1 * sct + sectionInfo[i];
 			if(sct > sectionInfo[i]) tt *= 0.5;
-
+			
 			tg.css('top', tt);
 			
 			var child = tg.children();
@@ -63,6 +60,7 @@ $(function(){
 				var min = objectInfo[i][j];
 				var max = objectInfo[i][j] + j * 200 + 100;
 				var objT = (sct - start) * (max - min) / (end - start) + min;
+				console.log(t, objT);
 				t.css({top:objT});
 			});
 		});
